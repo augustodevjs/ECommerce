@@ -2,6 +2,7 @@ using System.Text.Json;
 using Amazon.Lambda.Core;
 using ECommerce.Application;
 using Amazon.Lambda.SQSEvents;
+using ECommerce.Infraestructure;
 using ECommerce.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using ECommerce.Application.Contracts.Services;
@@ -9,6 +10,7 @@ using ECommerce.Application.Contracts.Services;
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
 namespace ECommerce.ApproveOrder;
+
 public class Function
 {
     private readonly IOrderApproveService _service;
@@ -18,6 +20,7 @@ public class Function
         var serviceCollection = new ServiceCollection();
 
         serviceCollection.AddDependeciesApplication();
+        serviceCollection.AddDependeciesInfraestructure();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 

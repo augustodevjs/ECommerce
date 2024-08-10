@@ -3,6 +3,7 @@ using Amazon.Lambda.Core;
 using ECommerce.Application;
 using Amazon.Lambda.SQSEvents;
 using ECommerce.Domain.Entities;
+using ECommerce.Infraestructure;
 using ECommerce.Application.Contracts.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,6 +19,7 @@ public class Function
         var serviceCollection = new ServiceCollection();
 
         serviceCollection.AddDependeciesApplication();
+        serviceCollection.AddDependeciesInfraestructure();
 
         var serviceProvider = serviceCollection.BuildServiceProvider();
 

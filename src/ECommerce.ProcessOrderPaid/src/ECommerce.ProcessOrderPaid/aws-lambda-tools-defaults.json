@@ -11,5 +11,6 @@
   "function-runtime": "dotnet8",
   "function-memory-size": 512,
   "function-timeout": 30,
+  "function-name": "ProcessOrderPaid",
   "function-handler": "ECommerce.ProcessOrderPaid::ECommerce.ProcessOrderPaid.Function::Handler"
 }

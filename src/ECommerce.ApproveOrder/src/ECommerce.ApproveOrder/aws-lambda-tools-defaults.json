@@ -9,7 +9,9 @@
   "region": "",
   "configuration": "Release",
   "function-runtime": "dotnet8",
+  "function-architecture": "x86_64",
   "function-memory-size": 512,
   "function-timeout": 30,
+  "function-name": "ApproveOrder",
   "function-handler": "ECommerce.ApproveOrder::ECommerce.ApproveOrder.Function::Handler"
 }
