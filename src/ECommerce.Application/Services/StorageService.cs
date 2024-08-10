@@ -9,7 +9,7 @@ namespace ECommerce.Application.Services;
 
 public class StorageService : IStorageService
 {
-    private IAmazonS3 _client;
+    private readonly IAmazonS3 _client;
 
     public StorageService(IAmazonS3 client)
     {
