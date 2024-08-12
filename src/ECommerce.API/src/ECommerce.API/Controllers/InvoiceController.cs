@@ -20,7 +20,7 @@ public class InvoiceController : ControllerBase
         var fileKey = $"{document}/{year}/{month}/{day}/{invoiceId}.json";
         var fileName = fileKey.Replace("/", "-");
 
-        var objectS3 = await _service.DownloadFile("invoice-bucket-ecommerce", fileKey);
+        var objectS3 = await _service.DownloadFile(Environment.GetEnvironmentVariable("BUCKET_ECOMMERCE")!, fileKey);
 
         return File(objectS3, "application/octet-stream", fileName);
     }

@@ -23,7 +23,7 @@ public class StorageService : IStorageService
 
         var putObjectRequest = new PutObjectRequest
         {
-            BucketName = "invoice-bucket-ecommerce",
+            BucketName = Environment.GetEnvironmentVariable("BUCKET_ECOMMERCE"),
             Key = key,
             ContentType = "application/json",
             InputStream = new MemoryStream(Encoding.UTF8.GetBytes(JsonSerializer.Serialize(invoice)))
