@@ -31,4 +31,30 @@ public class StorageService : IStorageService
 
         await _client.PutObjectAsync(putObjectRequest);
     }
+
+    public async Task<byte[]> DownloadFile(string nameBucket, string fileKey)
+    {
+        MemoryStream? stream = null;
+
+        var getObjectRequest = new GetObjectRequest
+        {
+            BucketName = nameBucket,
+            Key = fileKey
+        };
+
+        var response = await _client.GetObjectAsync(getObjectRequest);
+
+        if(response.HttpStatusCode == System.Net.HttpStatusCode.OK)
+        {
+            stream = new MemoryStream();
+            await response.ResponseStream.CopyToAsync(stream);
+        }
+
+        if (stream is null)
+        {
+            throw new FileNotFoundException("File not found");
+        }
+
+        return stream.ToArray();
+    }
 }

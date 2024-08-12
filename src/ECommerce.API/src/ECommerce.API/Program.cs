@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDependeciesApplication();
 builder.Services.AddDependeciesInfraestructure();
-builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.RestApi);
 builder.Services.Configure<ApiBehaviorOptions>(o => o.SuppressModelStateInvalidFilter = true);
 
 var app = builder.Build();

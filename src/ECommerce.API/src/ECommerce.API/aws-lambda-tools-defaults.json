@@ -11,7 +11,7 @@
   "function-runtime": "dotnet8",
   "function-timeout": 30,
   "function-handler": "ECommerce.API",
-  "function-url-enable": true,
+  "function-url-enable": false,
   "region": "us-east-1",
   "framework": "net8.0",
   "package-type": "Zip",
